@@ -1,0 +1,71 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a0a0a;
+    color: #e2e8f0;
+}
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+.glass-card {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #3b82f6;
+}
+.btn-primary {
+    background-color: #3b82f6;
+    transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #2563eb;
+}
+.btn-secondary {
+    background-color: #374151;
+    transition: background-color 0.3s ease;
+}
+.btn-secondary:hover {
+    background-color: #4b5563;
+}
+.btn-ai {
+    background-color: #8b5cf6;
+    transition: background-color 0.3s ease;
+}
+.btn-ai:hover {
+    background-color: #7c3aed;
+}
+.section-title {
+    background: -webkit-linear-gradient(45deg, #3b82f6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.output-pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #030712;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #374151;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* NEW: Styles for the team cards */
+.team-card {
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    background: rgba(29, 40, 56, 0.7); /* Slightly lighter on hover */
+}

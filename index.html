@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VectorTrace - AI-Powered Code Security</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Link to your new CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-white">
+                <span class="text-blue-500">Vector</span>Trace
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#features" class="text-slate-300 hover:text-blue-400 transition">Features</a>
+                <a href="#mission" class="text-slate-300 hover:text-blue-400 transition">Our Mission</a>
+                <a href="#team" class="text-slate-300 hover:text-blue-400 transition">Team</a>
+                <a href="#scanner" class="text-slate-300 hover:text-blue-400 transition">Live Demo</a>
+                <a href="#contact" class="text-slate-300 hover:text-blue-400 transition">Contact</a>
+            </div>
+            <a href="#scanner" class="hidden md:block btn-primary text-white font-semibold px-5 py-2 rounded-lg">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-4">
+                Your AI Partner in <span class="section-title">Code Security</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+                From threat modeling new features to automatically patching existing vulnerabilities, VectorTrace is your all-in-one AI security partner.
+            </p>
+            <a href="#scanner" class="btn-primary text-white font-bold px-8 py-4 rounded-lg text-lg">
+                Try The Live Demo
+            </a>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-12 md:py-24">
+        <!-- Features Section -->
+        <section id="features" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white">Why <span class="section-title">VectorTrace</span>?</h2>
+                <p class="text-slate-400 mt-2">The next generation of developer-first security.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature Cards remain the same -->
+                 <div class="feature-card glass-card p-6 rounded-lg border-2 border-transparent transition-all duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">AI-Powered Detection</h3>
+                    <p class="text-slate-400">Our fine-tuned LLM understands code context to find complex vulnerabilities that traditional scanners miss.</p>
+                </div>
+                <div class="feature-card glass-card p-6 rounded-lg border-2 border-transparent transition-all duration-300">
+                    <div class="text-purple-500 mb-4">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">✨ Automated Patching</h3>
+                    <p class="text-slate-400">Don't just find problems, fix them. VectorTrace generates secure, drop-in code patches with explanations.</p>
+                </div>
+                <div class="feature-card glass-card p-6 rounded-lg border-2 border-transparent transition-all duration-300">
+                    <div class="text-blue-500 mb-4">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">✨ AI Threat Modeling</h3>
+                    <p class="text-slate-400">Proactively identify security risks in new features before you even start coding, just by describing your idea.</p>
+                </div>
+                <div class="feature-card glass-card p-6 rounded-lg border-2 border-transparent transition-all duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7l8 5 8-5" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Dependency Scanning</h3>
+                    <p class="text-slate-400">Analyze your entire software supply chain. We identify known CVEs in your open-source dependencies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Our Mission Section -->
+        <section id="mission" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white">Our <span class="section-title">Mission</span></h2>
+                <p class="text-slate-400 mt-2">To secure the world's open-source software ecosystem.</p>
+            </div>
+            <div class="max-w-4xl mx-auto glass-card p-8 rounded-lg text-center">
+                <p class="text-lg text-slate-300 leading-relaxed">
+                    VectorTrace is pioneering the use of Large Language Models (LLMs) to build a smarter, more intuitive tool for vulnerability detection. Our mission is to analyze the source code of software, especially open-source projects, to identify malicious code, list dependencies, and flag known CVEs and CWEs. We don't just find problems—we suggest automated mitigation measures to create a more secure development lifecycle for everyone.
+                </p>
+            </div>
+        </section>
+
+        <!-- NEW: Team Section -->
+        <section id="team" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white">Meet the <span class="section-title">Team</span></h2>
+                <p class="text-slate-400 mt-2">The minds behind VectorTrace.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <!-- Team Member Card -->
+                <div class="team-card text-center p-6 glass-card rounded-lg">
+                    <h3 class="text-xl font-bold text-white">Neel Khairnar</h3>
+                    <p class="text-blue-400 font-semibold">Founder</p>
+                </div>
+                <!-- Team Member Card -->
+                <div class="team-card text-center p-6 glass-card rounded-lg">
+                    <h3 class="text-xl font-bold text-white">Tanmay Shinde</h3>
+                    <p class="text-blue-400 font-semibold">Co-founder</p>
+                </div>
+                <!-- Team Member Card -->
+                <div class="team-card text-center p-6 glass-card rounded-lg">
+                    <h3 class="text-xl font-bold text-white">Vedant Jadhav</h3>
+                    <p class="text-blue-400 font-semibold">Board Member</p>
+                </div>
+                <!-- Team Member Card -->
+                <div class="team-card text-center p-6 glass-card rounded-lg">
+                    <h3 class="text-xl font-bold text-white">Prajwal Pawar</h3>
+                    <p class="text-blue-400 font-semibold">Advisor</p>
+                </div>
+                <!-- Team Member Card -->
+                <div class="team-card text-center p-6 glass-card rounded-lg">
+                    <h3 class="text-xl font-bold text-white">Ganesh Ramavat</h3>
+                    <p class="text-blue-400 font-semibold">Member, Employee</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Demo Scanner Section -->
+        <section id="scanner" class="py-16">
+             <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white">Reactive Security: <span class="section-title">Find & Fix</span></h2>
+                <p class="text-slate-400 mt-2">Paste a code snippet below to see VectorTrace in action.</p>
+            </div>
+            <div class="max-w-4xl mx-auto glass-card p-8 rounded-lg">
+                <div class="mb-4">
+                    <label for="code-input" class="block text-sm font-medium text-slate-300 mb-2">Code Snippet (e.g., Python, JavaScript, Java)</label>
+                    <textarea id="code-input" rows="10" class="w-full p-3 bg-gray-900 border border-gray-700 rounded-md text-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Paste your code here..."></textarea>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                     <div class="flex items-center gap-4">
+                         <button id="scan-btn" class="btn-primary text-white font-semibold px-6 py-3 rounded-lg flex items-center">
+                             <span class="scan-icon-wrapper">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                             </span>
+                             <span class="loading-spinner-wrapper hidden">
+                                 <svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                             </span>
+                             <span class="btn-text">Scan Code</span>
+                         </button>
+                         <button id="fix-btn" class="btn-ai text-white font-semibold px-6 py-3 rounded-lg flex items-center">
+                              <span class="scan-icon-wrapper">
+                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+                              </span>
+                              <span class="loading-spinner-wrapper hidden">
+                                 <svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                              </span>
+                             <span class="btn-text">✨ Fix & Explain Code</span>
+                         </button>
+                     </div>
+                    <button id="example-btn" class="btn-secondary text-white font-semibold px-4 py-2 rounded-lg">Load Example</button>
+                </div>
+                <div id="scanner-output" class="mt-6">
+                    <!-- AI response will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Threat Modeler Section (This section is now hidden by default to simplify the page, but can be re-enabled) -->
+        <section id="threat-modeler" class="py-16 hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white">Proactive Security: <span class="section-title">AI Threat Modeler</span></h2>
+                <p class="text-slate-400 mt-2">Describe a new feature, and our AI will help you brainstorm potential security risks.</p>
+            </div>
+            <div class="max-w-4xl mx-auto glass-card p-8 rounded-lg">
+                <div class="mb-4">
+                    <label for="feature-description" class="block text-sm font-medium text-slate-300 mb-2">Feature Description</label>
+                    <textarea id="feature-description" rows="5" class="w-full p-3 bg-gray-900 border border-gray-700 rounded-md text-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="e.g., 'I want to build a user profile page where users can upload a profile picture and update their bio.'"></textarea>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button id="threat-model-btn" class="btn-ai text-white font-semibold px-6 py-3 rounded-lg flex items-center">
+                        <span class="scan-icon-wrapper">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd" /></svg>
+                        </span>
+                        <span class="loading-spinner-wrapper hidden">
+                           <svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                        </span>
+                        <span class="btn-text">✨ Analyze for Threats</span>
+                    </button>
+                </div>
+                <div id="threat-modeler-output" class="mt-6">
+                    <!-- AI response will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 text-center">
+             <h2 class="text-4xl font-bold text-white">Ready to <span class="section-title">Build Securely</span>?</h2>
+             <p class="text-slate-400 mt-2 mb-8">Partner with us or request a demo for enterprise solutions.</p>
+             <a href="mailto:hello@vectortrace.ai" class="btn-primary text-white font-bold px-8 py-4 rounded-lg text-lg">Contact Us</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-400">
+            <p>A project by Vedant Jadhav for the AI Grand Challenge.</p>
+            <p class="text-sm mt-2">&copy; 2025 VectorTrace. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Your script file, unchanged -->
+    <script src="script.js"></script>
+
+</body>
+</html>
