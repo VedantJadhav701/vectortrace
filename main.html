@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VectorTrace - AI-Powered Code Security</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+        .btn-primary {
+            background-color: #3b82f6;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb;
+        }
+        .btn-secondary {
+            background-color: #374151;
+            transition: background-color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #4b5563;
+        }
+        .btn-ai {
+            background-color: #8b5cf6;
+            transition: background-color 0.3s ease;
+        }
+        .btn-ai:hover {
+            background-color: #7c3aed;
+        }
+        .section-title {
+            background: -webkit-linear-gradient(45deg, #3b82f6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .output-pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #030712;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #374151;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">
+                <span class="text-blue-500">Vector</span>Trace
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#features" class="text-slate-300 hover:text-blue-400 transition">Features</a>
+                <a href="#scanner" class="text-slate-300 hover:text-blue-400 transition">Live Demo</a>
+                <a href="#threat-modeler" class="text-slate-300 hover:text-blue-400 transition">Threat Modeler</a>
+                <a href="#contact" class="text-slate-300 hover:text-blue-400 transition">Contact</a>
+            </div>
+            <a href="#scanner" class="hidden md:block btn-primary text-white font-semibold px-5 py-2 rounded-lg">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-4">
+                Proactive & Reactive AI Security <span class="section-title">for Your Code</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+                From threat modeling new features to automatically patching existing vulnerabilities, VectorTrace is your all-in-one AI security partner.
+            </p>
+            <a href="#scanner" class="btn-primary text-white font-bold px-8 py-4 rounded-lg text-lg">
+                Try The Live Demo
+            </a>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-12 md:py-24">
+        <!-- Features Section -->
+        <section id="features" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white">Why <span class="section-title">VectorTrace</span>?</h2>
+                <p class="text-slate-400 mt-2">The next generation of developer-first security.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card glass-card p-6 rounded-lg border-2 border-transparent transition-all duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">AI-Powered Detection</h3>
+                    <p class="text-slate-400">Our fine-tuned LLM understands code context to find complex vulnerabilities that traditional scanners miss.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card glass-card p-6 rounded-lg border-2 border-transparent transition-all duration-300">
+                    <div class="text-purple-500 mb-4">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">✨ Automated Patching</h3>
+                    <p class="text-slate-400">Don't just find problems, fix them. VectorTrace generates secure, drop-in code patches with explanations.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card glass-card p-6 rounded-lg border-2 border-transparent transition-all duration-300">
+                    <div class="text-blue-500 mb-4">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">✨ AI Threat Modeling</h3>
+                    <p class="text-slate-400">Proactively identify security risks in new features before you even start coding, just by describing your idea.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="feature-card glass-card p-6 rounded-lg border-2 border-transparent transition-all duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4M4 7l8 5 8-5" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Dependency Scanning</h3>
+                    <p class="text-slate-400">Analyze your entire software supply chain. We identify known CVEs in your open-source dependencies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Demo Scanner Section -->
+        <section id="scanner" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white">Reactive Security: <span class="section-title">Find & Fix</span></h2>
+                <p class="text-slate-400 mt-2">Paste a code snippet below to see VectorTrace in action.</p>
+            </div>
+            <div class="max-w-4xl mx-auto glass-card p-8 rounded-lg">
+                <div class="mb-4">
+                    <label for="code-input" class="block text-sm font-medium text-slate-300 mb-2">Code Snippet (e.g., Python, JavaScript, Java)</label>
+                    <textarea id="code-input" rows="10" class="w-full p-3 bg-gray-900 border border-gray-700 rounded-md text-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Paste your code here..."></textarea>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                     <div class="flex items-center gap-4">
+                        <button id="scan-btn" class="btn-primary text-white font-semibold px-6 py-3 rounded-lg flex items-center">
+                            <span class="scan-icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                            </span>
+                            <span class="loading-spinner-wrapper hidden">
+                                <svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                            </span>
+                            <span class="btn-text">Scan Code</span>
+                        </button>
+                        <button id="fix-btn" class="btn-ai text-white font-semibold px-6 py-3 rounded-lg flex items-center">
+                             <span class="scan-icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" /></svg>
+                            </span>
+                             <span class="loading-spinner-wrapper hidden">
+                                <svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                            </span>
+                            <span class="btn-text">✨ Fix & Explain Code</span>
+                        </button>
+                    </div>
+                    <button id="example-btn" class="btn-secondary text-white font-semibold px-4 py-2 rounded-lg">Load Example</button>
+                </div>
+                <div id="scanner-output" class="mt-6">
+                    <!-- AI response will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Threat Modeler Section -->
+        <section id="threat-modeler" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white">Proactive Security: <span class="section-title">AI Threat Modeler</span></h2>
+                <p class="text-slate-400 mt-2">Describe a new feature, and our AI will help you brainstorm potential security risks.</p>
+            </div>
+            <div class="max-w-4xl mx-auto glass-card p-8 rounded-lg">
+                <div class="mb-4">
+                    <label for="feature-description" class="block text-sm font-medium text-slate-300 mb-2">Feature Description</label>
+                    <textarea id="feature-description" rows="5" class="w-full p-3 bg-gray-900 border border-gray-700 rounded-md text-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="e.g., 'I want to build a user profile page where users can upload a profile picture and update their bio.'"></textarea>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button id="threat-model-btn" class="btn-ai text-white font-semibold px-6 py-3 rounded-lg flex items-center">
+                        <span class="scan-icon-wrapper">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd" /></svg>
+                        </span>
+                        <span class="loading-spinner-wrapper hidden">
+                            <svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                        </span>
+                        <span class="btn-text">✨ Analyze for Threats</span>
+                    </button>
+                </div>
+                <div id="threat-modeler-output" class="mt-6">
+                    <!-- AI response will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 text-center">
+             <h2 class="text-4xl font-bold text-white">Ready to <span class="section-title">Build Securely</span>?</h2>
+             <p class="text-slate-400 mt-2 mb-8">Contact us for enterprise solutions or join our community.</p>
+             <a href="mailto:hello@vectortrace.ai" class="btn-primary text-white font-bold px-8 py-4 rounded-lg text-lg">Contact Sales</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-400">
+            <p>&copy; 2025 VectorTrace. All rights reserved.</p>
+            <p class="text-sm mt-2">Made with ❤️ in Pune, India for the AI Grand Challenge.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // --- Three.js Hero Background Animation ---
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('hero-canvas'), alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        const particlesCount = 5000;
+        const positions = new Float32Array(particlesCount * 3);
+        
+        for(let i = 0; i < particlesCount * 3; i++) {
+            positions[i] = (Math.random() - 0.5) * 10;
+        }
+
+        const particlesGeometry = new THREE.BufferGeometry();
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.005,
+            color: 0x3b82f6
+        });
+
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
+        camera.position.z = 5;
+
+        const animate = function () {
+            requestAnimationFrame(animate);
+            particles.rotation.x += 0.0001;
+            particles.rotation.y += 0.0002;
+            renderer.render(scene, camera);
+        };
+        animate();
+
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+
+        // --- Smooth Scrolling ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // --- Shared Elements & Functions ---
+        const codeInput = document.getElementById('code-input');
+        const scannerOutput = document.getElementById('scanner-output');
+        const exampleBtn = document.getElementById('example-btn');
+        const scanBtn = document.getElementById('scan-btn');
+        const fixBtn = document.getElementById('fix-btn');
+        const featureDescriptionInput = document.getElementById('feature-description');
+        const threatModelerOutput = document.getElementById('threat-modeler-output');
+        const threatModelBtn = document.getElementById('threat-model-btn');
+        
+        const exampleCode = `
+// Vulnerable Python Flask code
+import sqlite3
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route("/user")
+def get_user():
+    user_id = request.args.get('id')
+    db = sqlite3.connect('database.db')
+    cursor = db.cursor()
+    
+    # This line is vulnerable to SQL Injection
+    query = "SELECT * FROM users WHERE id = " + user_id
+    cursor.execute(query)
+    
+    user = cursor.fetchone()
+    db.close()
+    return str(user)
+        `;
+
+        const toggleButtonLoadingState = (button, isLoading) => {
+            button.disabled = isLoading;
+            const text = button.querySelector('.btn-text');
+            const spinner = button.querySelector('.loading-spinner-wrapper');
+            const icon = button.querySelector('.scan-icon-wrapper');
+
+            if (isLoading) {
+                text.textContent = text.textContent.startsWith('✨') ? '✨ Analyzing...' : 'Analyzing...';
+                spinner.classList.remove('hidden');
+                icon.classList.add('hidden');
+            } else {
+                if (button.id === 'scan-btn') text.textContent = 'Scan Code';
+                if (button.id === 'fix-btn') text.textContent = '✨ Fix & Explain Code';
+                if (button.id === 'threat-model-btn') text.textContent = '✨ Analyze for Threats';
+                spinner.classList.add('hidden');
+                icon.classList.remove('hidden');
+            }
+        };
+
+        // --- Mock Responses for Offline Demo ---
+        const mockScanResponse = `
+VectorTrace Security Analysis Report
+------------------------------------
+
+**Vulnerability Type:** SQL Injection (CWE-89)
+**Severity:** Critical
+
+**Explanation:**
+The application code constructs a raw SQL query by directly concatenating user-supplied input ('id' parameter) into the query string. An attacker can provide malicious SQL code as the 'id' parameter (e.g., '1 OR 1=1') to manipulate the database query, bypass authentication, or exfiltrate data.
+
+**Vulnerable Code:**
+\`\`\`python
+query = "SELECT * FROM users WHERE id = " + user_id
+\`\`\`
+        `;
+
+        const mockFixResponse = `
+The Fix (Corrected Code)
+------------------------
+Here is the secure, corrected version of the code:
+
+\`\`\`python
+import sqlite3
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route("/user")
+def get_user():
+    user_id = request.args.get('id')
+    db = sqlite3.connect('database.db')
+    cursor = db.cursor()
+    
+    # Use a parameterized query to prevent SQL injection
+    query = "SELECT * FROM users WHERE id = ?"
+    cursor.execute(query, (user_id,))
+    
+    user = cursor.fetchone()
+    db.close()
+    return str(user)
+\`\`\`
+
+Explanation
+-----------
+1.  **Why it was Vulnerable:** The original code directly inserted the \`user_id\` variable into the SQL query string. This is dangerous because an attacker could enter SQL commands instead of a simple ID, and the database would execute them.
+
+2.  **How it's Fixed:** The corrected code uses a **parameterized query** (also known as a prepared statement).
+    * The SQL query is written with a placeholder (\`?\`).
+    * The user-provided \`user_id\` is passed as a separate argument to \`cursor.execute()\`.
+    * The database driver then safely combines the query and the parameter, ensuring that the user input is treated only as data, not as executable code. This makes SQL injection impossible.
+        `;
+
+        const mockThreatModelResponse = `
+VectorTrace AI Threat Model
+---------------------------
+Feature: "A user profile page where users can upload a profile picture and update their bio."
+
+Here are potential security risks and recommended mitigations:
+
+**1. Threat/Vulnerability:** Unrestricted File Upload (CWE-434)
+   - **Potential Impact:** Remote Code Execution. An attacker could upload a malicious script (e.g., a PHP shell) instead of an image, then execute it on the server.
+   - **Recommended Mitigation:**
+     - Implement a strict allow-list for file extensions (e.g., '.jpg', '.png', '.gif').
+     - Do not trust the file's MIME type; verify the file content itself.
+     - Store uploaded files in a non-executable directory outside the web root.
+     - Rename uploaded files to a random string to prevent direct access.
+
+**2. Threat/Vulnerability:** Cross-Site Scripting (XSS) in Bio (CWE-79)
+   - **Potential Impact:** Session Hijacking, Defacement. An attacker could inject malicious JavaScript into their bio. When other users view the profile, the script executes in their browser.
+   - **Recommended Mitigation:**
+     - Sanitize all user input. Use a trusted library to strip any HTML/script tags before storing the bio in the database.
+     - When displaying the bio, ensure it is properly HTML-encoded so the browser treats it as text, not code.
+
+**3. Threat/Vulnerability:** Cross-Site Request Forgery (CSRF) on Profile Update (CWE-352)
+   - **Potential Impact:** Unauthorized Profile Changes. An attacker could trick a logged-in user into clicking a malicious link that secretly changes their bio or profile picture without their consent.
+   - **Recommended Mitigation:**
+     - Implement anti-CSRF tokens. Generate a unique, unpredictable token for each user session and require it to be submitted with any form that changes data.
+        `;
+
+        // --- Vulnerability Scanner Logic ---
+        exampleBtn.addEventListener('click', () => {
+            codeInput.value = exampleCode;
+        });
+
+        scanBtn.addEventListener('click', () => {
+            const code = codeInput.value.trim();
+            if (!code) {
+                scannerOutput.innerHTML = '<p class="text-red-400">Please paste some code to analyze.</p>';
+                return;
+            }
+            toggleButtonLoadingState(scanBtn, true);
+            scannerOutput.innerHTML = '<p class="text-blue-400">AI is analyzing the code. This may take a moment...</p>';
+
+            setTimeout(() => {
+                scannerOutput.innerHTML = `<pre class="output-pre">${mockScanResponse}</pre>`;
+                toggleButtonLoadingState(scanBtn, false);
+            }, 1500); // Simulate network delay
+        });
+
+        fixBtn.addEventListener('click', () => {
+            const code = codeInput.value.trim();
+            if (!code) {
+                scannerOutput.innerHTML = '<p class="text-red-400">Please paste some code to fix.</p>';
+                return;
+            }
+            toggleButtonLoadingState(fixBtn, true);
+            scannerOutput.innerHTML = '<p class="text-purple-400">✨ AI is generating a fix and explanation...</p>';
+            
+            setTimeout(() => {
+                scannerOutput.innerHTML = `<pre class="output-pre">${mockFixResponse}</pre>`;
+                toggleButtonLoadingState(fixBtn, false);
+            }, 2000); // Simulate network delay
+        });
+
+        // --- Threat Modeler Logic ---
+        threatModelBtn.addEventListener('click', () => {
+            const description = featureDescriptionInput.value.trim();
+            if (!description) {
+                threatModelerOutput.innerHTML = '<p class="text-red-400">Please describe the feature you want to analyze.</p>';
+                return;
+            }
+            toggleButtonLoadingState(threatModelBtn, true);
+            threatModelerOutput.innerHTML = '<p class="text-purple-400">✨ AI is brainstorming potential threats...</p>';
+
+            setTimeout(() => {
+                threatModelerOutput.innerHTML = `<pre class="output-pre">${mockThreatModelResponse}</pre>`;
+                toggleButtonLoadingState(threatModelBtn, false);
+            }, 2500); // Simulate network delay
+        });
+
+    </script>
+
+</body>
+</html>
